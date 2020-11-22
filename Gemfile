@@ -50,7 +50,7 @@ group :test do
   gem 'webdrivers'
 end
 
-group :test do
+group :production do
   gem 'pg', '1.1.4'
 end
 
