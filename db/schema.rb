@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_031729) do
+ActiveRecord::Schema.define(version: 2020_11_25_160209) do
 
   create_table "evaluations", force: :cascade do |t|
     t.string "student_evaluated"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_031729) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "project_id"
+    t.index ["project_id"], name: "index_evaluations_on_project_id"
+    t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_031729) do
     t.string "account_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "users_groups", id: false, force: :cascade do |t|
@@ -59,6 +62,4 @@ ActiveRecord::Schema.define(version: 2020_11_24_031729) do
     t.index ["user_id"], name: "index_users_groups_on_user_id"
   end
 
-  add_foreign_key "evaluations", "projects"
-  add_foreign_key "evaluations", "users"
 end
