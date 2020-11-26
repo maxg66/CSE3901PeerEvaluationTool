@@ -6,6 +6,7 @@ class AdminStaticPagesController < ApplicationController
   end
 
   def groupPage
+    @users_groups = Group.all
   end
 
   def groupMemberPage
