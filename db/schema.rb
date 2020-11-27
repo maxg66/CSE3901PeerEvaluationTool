@@ -30,19 +30,22 @@ ActiveRecord::Schema.define(version: 2020_11_25_160209) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "groups_projects", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "group_id", null: false
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "p_name"
     t.string "project_type"
     t.date "due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "projects_groups", id: false, force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "group_id"
-    t.index ["group_id"], name: "index_projects_groups_on_group_id"
-    t.index ["project_id"], name: "index_projects_groups_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,13 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_160209) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-  end
-
-  create_table "users_groups", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
-    t.index ["group_id"], name: "index_users_groups_on_group_id"
-    t.index ["user_id"], name: "index_users_groups_on_user_id"
   end
 
 end
