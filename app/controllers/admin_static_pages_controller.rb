@@ -3,9 +3,11 @@ class AdminStaticPagesController < ApplicationController
   end
 
   def projectPage
+    @admin_projects = Project.all
   end
 
   def groupPage
+    @admin_groups = Group.all
   end
 
   def groupMemberPage

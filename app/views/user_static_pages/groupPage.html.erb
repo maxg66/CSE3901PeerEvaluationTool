@@ -1,3 +1,19 @@
 <% provide(:title, "Group") %>
-<h1>Group</h1>
+<h1>Groups</h1>
 <p>Find me in app/views/user_static_pages/groupPage.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Your Groups</th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @user_groups.each do |group| %><%# need to figure out how to only show user groups%>
+        <tr>
+            <td><%= link_to group.g_name,  user_static_pages_groupMemberPage_path  %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
