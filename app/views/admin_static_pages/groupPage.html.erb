@@ -10,9 +10,9 @@
   </thead>
 
     <tbody>
-        <% @users_groups.each do |group| %>
+        <% @admin_groups.each do |group| %>
         <tr>
-            <td><%= group.g_name %></td>
+            <td><%= link_to group.g_name,  admin_static_pages_groupMemberPage_path  %></td>
         </tr>
         <% end %>
     </tbody>
