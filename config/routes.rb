@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :groups
-  root 'admin_static_pages#loginPage'
+  root 'user_static_pages#loginPage'
   get 'user_static_pages/projectPage'
   get 'user_static_pages/groupPage'
   get 'user_static_pages/ratingPage'
-  post '/loginVal' => 'admin_static_pages#loginPage2'
-  get 'admin_static_pages/loginPage'
+  post '/loginVal' => 'user_static_pages#loginPageVal'
+  #get 'admin_static_pages/loginPage'
   get 'admin_static_pages/projectPage'
   get 'admin_static_pages/groupPage'
   get 'admin_static_pages/groupMemberPage'
