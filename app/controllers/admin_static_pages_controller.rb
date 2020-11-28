@@ -12,8 +12,9 @@ class AdminStaticPagesController < ApplicationController
           redirect_to '/user_static_pages/groupPage.html'
         end
       else
-        redirect_back(fallback_location: root_path)
         flash.now[:danger] = 'Invalid email/password combination' 
+        render 'loginPage'
+        #redirect_back(fallback_location: root_path)
       end
       
   end
