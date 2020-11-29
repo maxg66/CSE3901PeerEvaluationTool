@@ -1,0 +1,32 @@
+<body>
+
+<h1>Add Project</h1>
+
+<% flash.each do |message_type, message| %>       
+    <div><%= message %></div>    
+  <% end %>
+
+<form action="/addProject" method="post">
+
+  <div class="container">
+    <label for="project[pname]"><b>Project Name</b></label>
+    <div>
+    <input type="text" placeholder="Enter Project Name" name="project[p_name]" required>
+    
+ <div class="space">
+    <label for="project[ptype]"><b>Project Type</b></label>
+   <div>
+        <input type="text" placeholder="Enter Project Type" name="project[project_type]" required>
+        <div class="space"> 
+
+        <label for="project[pduedate]"><b>Due Date</b></label>
+       <div>
+            <input type="date" placeholder="Enter Project Due Date" name="project[due_date]" required>
+            <div class="space"> 
+
+  <button type="submit">Add</button>
+  </div>
+ 
+</form>
+
+</body>
