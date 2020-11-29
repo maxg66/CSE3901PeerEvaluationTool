@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'admin_static_pages/groupPage'
   get 'admin_static_pages/groupMemberPage'
   get 'admin_static_pages/ratingPage'
-  get 'admin_static_pages/studentPage'
+  #get 'admin_static_pages/studentPage'
 end

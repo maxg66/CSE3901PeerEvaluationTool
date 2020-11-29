@@ -31,10 +31,10 @@ class AdminStaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Ratings | Peer Evaluation Tool"
   end
 
-  test "should get studentPage" do
-    get admin_static_pages_studentPage_url
-    assert_response :success
-    assert_select "title", "Students | Peer Evaluation Tool"
-  end
+  # test "should get studentPage" do
+  #   get admin_static_pages_studentPage_url
+  #   assert_response :success
+  #   assert_select "title", "Students | Peer Evaluation Tool"
+  # end
 
 end

@@ -11,8 +11,8 @@ class AdminStaticPagesController < ApplicationController
   def groupMemberPage
   end
 
-  def studentPage
-  end
+  # def studentPage
+  # end
 
   def ratingPage
   end
