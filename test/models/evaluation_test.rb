@@ -3,7 +3,7 @@ require 'test_helper'
 class EvaluationTest < ActiveSupport::TestCase
   def setup
     @evaluation = Evaluation.new(student_evaluated: "Brutus Buckeye", content: "Great", rating: 9,
-                  user_id: 1, project_id: 1)
+                  user: u, project: p)
   end
 
   test "student_evaluated should be present" do

@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2020_11_25_160209) do
     t.string "student_evaluated"
     t.text "content"
     t.integer "rating"
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "project_id"
     t.index ["project_id"], name: "index_evaluations_on_project_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
@@ -58,4 +58,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_160209) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "evaluations", "projects"
+  add_foreign_key "evaluations", "users"
 end
