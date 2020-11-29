@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_160209) do
+ActiveRecord::Schema.define(version: 2020_11_29_201251) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "a_name"
+    t.string "a_email"
+    t.string "a_password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"email\"", name: "index_admins_on_email", unique: true
+  end
+
+  create_table "admins_users", id: false, force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.integer "user_id", null: false
+  end
 
   create_table "evaluations", force: :cascade do |t|
     t.string "student_evaluated"
@@ -52,7 +66,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_160209) do
     t.string "u_name"
     t.string "email"
     t.string "password"
-    t.string "account_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
