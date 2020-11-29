@@ -11,6 +11,9 @@ class AdminStaticPagesController < ApplicationController
   def groupMemberPage
   end
 
+  def createNew
+  end
+
   def studentPage
   end
 

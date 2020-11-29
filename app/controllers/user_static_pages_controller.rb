@@ -14,7 +14,7 @@ class UserStaticPagesController < ApplicationController
       else
         flash.now[:danger] = 'Invalid email/password combination' 
         render 'loginPage'
-        #redirect_back(fallback_location: root_path)
+        #redirect_back(fallback_location: rSoot_path)
       end
       
   end
@@ -32,4 +32,5 @@ class UserStaticPagesController < ApplicationController
 
   def ratingPage
   end
+
 end
