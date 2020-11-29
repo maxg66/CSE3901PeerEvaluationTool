@@ -12,6 +12,7 @@ class AdminStaticPagesController < ApplicationController
   end
 
   def createNew
+    
   end
 
   def studentPage
