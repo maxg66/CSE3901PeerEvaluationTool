@@ -14,6 +14,9 @@ class AdminStaticPagesController < ApplicationController
   # def studentPage
   # end
 
+  def createNew
+  end
+
   def ratingPage
   end
 
