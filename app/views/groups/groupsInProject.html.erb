@@ -1,0 +1,21 @@
+<h1>Group</h1>
+<p>Find me in app/views/admin_static_pages/groupPage.html.erb</p>
+
+<button type="button"><%= link_to 'Create New Group', new_group_path %></button>
+<button type="button"><%= link_to 'Add Existing Group to ' + @selected_project.p_name, findAvailableGroups_path %></button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Groups for <%=@selected_project.p_name%></th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @selected_project.groups.each do |group| %>
+        <tr>
+            <td><%= link_to group.g_name,  admin_static_pages_groupMemberPage_path(:selected_group => group.id)  %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

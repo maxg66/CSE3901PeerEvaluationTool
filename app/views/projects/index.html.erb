@@ -1,0 +1,27 @@
+<% provide(:title, "Projects") %>
+<h1>Projects</h1>
+
+<button type="button"><%= link_to 'Create New Project', new_project_path %></button>
+<button type="button"><%= link_to 'Create New Group', new_group_path %></button>
+<button type="button"><%= link_to 'Create New User', new_user_path %></button>
+
+<table>
+  <th>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Due</th>
+      <th colspan="3"></th>
+    </tr>
+  </th>
+
+    <tbody>
+        <% @projects.each do |project| %>
+        <tr>
+            <td><%= link_to project.p_name, groupsInProject_path(:selected_project => project.id) %></td>
+            <td><%=project.project_type%></td>
+            <td><%=project.due_date%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
