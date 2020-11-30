@@ -1,2 +1,31 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Add User</h1>
+
+<% flash.each do |message_type, message| %>       
+    <div><%= message %></div>    
+  <% end %>
+
+<form action='/users' method="post">
+  
+  <div class="container">
+    <div class="space">
+        <label for="uname"><b>User Name</b></label>
+    </div>
+    <input type="text" placeholder="Enter Full Name (Ex: Brutus Buckeye)" name="user[u_name]" required>
+    
+    <div class="space">
+        <label for="email"><b>Email</b></label>
+    </div>
+    <input type="text" placeholder="Enter Email" name="user[email]" required>
+    
+    <div class="space">   
+        <label for="password"><b>Password</b></label>
+    </div>
+    <input type="text" placeholder="Enter Password" name="user[password]" required>
+    
+    <div class="space">      
+        <button type="submit">Add</button>
+    </div>
+ 
+  </div>
+</form>
+

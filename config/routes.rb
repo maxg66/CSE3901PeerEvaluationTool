@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'groups/new'
   get 'users/new'
   get '/addMember',  to:'admins#new'
-  resources :groups
+
   root 'user_static_pages#loginPage'
   get 'user_static_pages/projectPage'
   get 'user_static_pages/groupPage'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/loginVal' => 'user_static_pages#loginPageVal'
   post '/addProject' => 'admin_static_pages#valAddProject'
   get '/navAddProj' => 'admin_static_pages#createProjectPage'
+
   #get 'admin_static_pages/loginPage'
   get 'admin_static_pages/projectPage'
   get 'admin_static_pages/groupPage'
@@ -23,4 +24,11 @@ Rails.application.routes.draw do
   # get '/groupPage',       to: 'user_static_pages#groupPage'
   # get '/ratingPage',      to: 'user_static_pages#ratingPage'
   # post '/loginVal',       to: 'user_static_pages#loginPageVal'
+
+  resources :users
+  post '/users' => 'users#create'
+  resources :admins
+  resources :groups
+  resources :projects
+  resources :evaluations
 end

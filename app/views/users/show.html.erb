@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.u_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<button type="button"><%= link_to 'Create Another User', new_user_path %></button>
+<button type="button"><%= link_to 'Projects', admin_static_pages_projectPage_path %></button>
