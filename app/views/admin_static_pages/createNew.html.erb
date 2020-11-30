@@ -1,72 +1,72 @@
-<% provide(:title, "CreateNew") %>
-<h1>Create New Students and Groups</h1>
-<p>Find me in app/views/admin_static_pages/createNew.html.erb</p>
+<body>
 
-<form>
+  <h2>Add User</h2>
+  <% flash.each do |message_type, message| %>       
+    <div><%= message %></div>    
+  <% end %>
+  <form action="/addUser" method="post">
 
-  <h2><%= link_to "Add User", addMember_path %></h2>
-  
   <div class="container">
 
-    <label for="uname"><b>User Name</b></label>
+    <label for="user[uname]"><b>User Name</b></label>
     <div>
-    <input type="text" placeholder="User Name" name="uname" required>
+    <input type="text" placeholder="Enter User Name" name="user[u_name]" required>
     
-    <div class="space">
+    
+    
+  <div class="space">
 
-    <label for="email"><b>Email</b></label>
+    <label for="user[email]"><b>Email</b></label>
     <div>
-    <input type="text" placeholder="Email" name="email" required>
-    
-    <div class="space">   
+    <input type="text" placeholder="Enter User's Email" name="user[e_mail]" required>
+      <div class="space">
 
-    <label for="password"><b>Password</b></label>
-    <div>
-    <input type="text" placeholder="Password" name="password" required>
-
-    <div class="space">
-
-    <label for="aType"><b>Account Type</b></label>
-    <div>
-    <input type="text" placeholder="Admin or User" name="aType" required>
+      <label for="user[passWord]"><b>Password</b></label>
+          <div>
+          <input type="text" placeholder="Enter User's Password" name="user[pass_word]" required>
+            <div class="space">
+            <label for="user[accountType]"><b>Account Type</b></label>
+                  <div>
+                  <input type="text" placeholder="Admin or User" name="user[account_type]" required>
+                  <div class="space">  
     
-    <div class="space">      
-    
-    <button type="submit">Add</button>
- 
+  <button type="submit">Add</button>
   </div>
 
 </form>
-   
-<form>
- 
 
-  <h2>Create New Group</h2>
-  <label for="gName"><b>Group Name</b></label>
- <div>
-  <input type="text" placeholder="Group Name" name="gName" required>
-     <div class="space">    
-    <button type="submit">Create</button>
- 
-</form>
+<h2>Add Group</h2>
 
-<form>
-    <h2>Add to Group</h2>
-    <label for="uName"><b>User Name</b></label>
+<form action="/addGroup" method="post">
+
+  <div class="container">
+
+    <label for="group[gname]"><b>Group Name</b></label>
     <div>
-    <input type="text" placeholder="Student Name" name="sname" required>
-        <div class="space">    
-        
-    <tbody>
-            <% @admin_groups.each do |group| %>
-            
-            <tr>
-                <input type="radio" id="gName" value="groupName">
-                <label for="groupName"><%= link_to group.g_name,  admin_static_pages_groupMemberPage_path  %></label><br>
-            </tr>
-            <% end %>
-        </tbody>
-
-        <button type="submit">Add to Group</button>
+    <input type="text" placeholder="Enter Group Name" name="group[g_name]" required>
+    
+  <button type="submit">Add</button>
+  </div>
 
 </form>
+
+<h2>Add User to Group</h2>
+
+<form action="/addUsertoGroup" method="post">
+
+  <div class="container">
+    <label for="addU[uname]"><b>User Name</b></label>
+    <div>
+    <input type="text" placeholder="Enter User Name" name="addU[u_name]" required>
+ 
+  <div class="space">
+
+    <label for="addU[gName]"><b>Group Name</b></label>
+    <div>
+        <input type="text" placeholder="Enter Group Name" name="addU[g_name]" required>
+        <div class="space"> 
+  <button type="submit">Add to Group</button>
+  </div>
+ 
+</form>
+</body>
