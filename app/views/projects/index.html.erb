@@ -1,17 +1,18 @@
 <% provide(:title, "Projects") %>
-<h1>Projects</h1>
+<h1>Admin Home</h1>
 
-<button type="button"><%= link_to 'Create New Project', new_project_path %></button>
-<button type="button"><%= link_to 'Create New Group', new_group_path %></button>
-<button type="button"><%= link_to 'Create New User', new_user_path %></button>
+<%= link_to_primary_button 'Create New Project', new_project_path %>
+<%= link_to_primary_button 'Create New User', new_user_path %>
+<%= link_to_primary_button 'Create New Group', new_group_path %>
 
-<table>
-  <th>
+<h3>Projects</h3>
+
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Due</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Due</th>
     </tr>
   </th>
 
@@ -25,3 +26,4 @@
         <% end %>
     </tbody>
 </table>
+
