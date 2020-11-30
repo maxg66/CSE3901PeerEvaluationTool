@@ -30,5 +30,9 @@ Rails.application.routes.draw do
   resources :admins
   resources :groups
   resources :projects
+  get '/groupsInProject' => 'groups#groupsInProject'
+  post '/addGroupToProject' => 'groups#addGroupToProject'
+  get '/findAvailableGroups' => 'groups#findAvailableGroups'
+  
   resources :evaluations
 end

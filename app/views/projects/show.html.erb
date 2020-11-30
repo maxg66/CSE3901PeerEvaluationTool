@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project: </strong>
+  <%= @project.p_name %>
+</p>
+
+<button type="button"><%= link_to 'Create Another User', new_project_path %></button>
+<button type="button"><%= link_to 'Projects', projects_path %></button>

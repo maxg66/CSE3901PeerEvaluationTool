@@ -1,0 +1,17 @@
+<h1>Available Groups</h1>
+<table>
+  <th>
+    <tr>
+      <th>Click on a group below to add it to <%=@current_project.p_name%>: </th>
+      <th colspan="3"></th>
+    </tr>
+  </th>
+
+    <tbody>
+        <% @possible_groups.each do |group| %>
+        <tr>
+            <td><%= link_to group.g_name,  addGroupToProject_path(:group_to_add => group), method: :post  %></td>
+        </tr
+        <% end %>
+    </tbody>
+</table>

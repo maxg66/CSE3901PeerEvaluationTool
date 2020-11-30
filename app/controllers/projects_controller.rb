@@ -1,26 +1,39 @@
 class ProjectsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   # For a page to list all projects (GET)
   # Named route: projects_path
   def index
     @projects = Project.all
   end
 
+  # For a page to list all project groups (GET)
+  # Named route: groups_path
+  def projectGroups
+    @groups = Group.all
+    @selected_project = Project.find(params[:selected_project])
+  end
+
+  def groupPage
+    @admin_groups = Group.all
+    @selected_project = Project.find(params[:selected_project])
+  end
   # For a page to show project (GET)
   # Named route: project_path(project)
   def show
-    @projects = Project.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   # For a page to make a new project (GET)
   # Named route: new_project_path
   def new
-    @projects = Project.new
+    @project = Project.new
   end
 
   # To create a new project (POST)
   # Named route: projects_path
   def create
-    @projects = Project.new(project_params)
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
