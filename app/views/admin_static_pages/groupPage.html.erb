@@ -5,14 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>Your Groups</th>
+      <th>Groups for <%=@selected_project.p_name%></th>
     </tr>
   </thead>
 
     <tbody>
-        <% @admin_groups.each do |group| %>
+        <% @selected_project.groups.each do |group| %>
         <tr>
-            <td><%= link_to group.g_name,  admin_static_pages_groupMemberPage_path  %></td>
+            <td><%= link_to group.g_name,  admin_static_pages_groupMemberPage_path(:selected_group => group.id)  %></td>
         </tr>
         <% end %>
     </tbody>

@@ -1,5 +1,5 @@
 <% provide(:title, "Group") %>
-<h1>Groups</h1>
+<h1>Group Members for <%=@selected_project.p_name%> </h1>
 <p>Find me in app/views/user_static_pages/groupPage.html.erb</p>
 
 <table>
@@ -10,9 +10,9 @@
   </thead>
 
     <tbody>
-        <% @user_groups.each do |group| %><%# need to figure out how to only show user groups%>
+        <% @selected_project.users.each do |user| %>
         <tr>
-            <td><%= link_to group.g_name,  user_static_pages_groupMemberPage_path  %></td>
+            <td><%= link_to group.g_name,  user_static_pages_ratingPage_path(:selected_user => user.id)  %></td>
         </tr>
         <% end %>
     </tbody>

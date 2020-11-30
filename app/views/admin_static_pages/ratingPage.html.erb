@@ -4,32 +4,16 @@
 <table>
   <thead>
     <tr>
-      <th>Evaluations Given</th>
+      <th>Evaluations for <%=@selected_user.u_name%></th>
     </tr>
   </thead>
 
     <tbody>
-        <%# @user.evals.given.each do |eval| %>
+        <%= @selected_user.evaluations.each do |eval| %>
         <tr>
-            <td><%# should we show the whole eval in the table, or link to another page to see details?  %></td>
+            <td><%= user_projects.find(eval.project_id).p_name %></td>
         </tr>
-        <%# end %>
-    </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Evaluations Made</th>
-    </tr>
-  </thead>
-
-    <tbody>
-        <%# @user.evals.made.each do |eval| %>
-        <tr>
-            <td><%# should we show the whole eval in the table, or link to another page to see details?  %></td>
-        </tr>
-        <%# end %>
+        <% end %>
     </tbody>
 </table>
 

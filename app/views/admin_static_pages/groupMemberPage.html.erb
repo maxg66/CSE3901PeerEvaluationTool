@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Members of <%#group name will go here%></th>
+      <th>Members of <%=@selected_group.g_name%></th>
     </tr>
   </thead>
 
     <tbody>
-        <%# @group.users.each do |user| %>
+        <%= @selected_group.users.each do |user| %>
         <tr>
-            <td><%# link_to user.u_name,  user_page_path  %></td>
+            <td><%= link_to user.u_name,  admin_static_pages_ratingPage_path(:selected_user =>user.id)  %></td>
         </tr>
-        <%# end %>
+        <% end %>
     </tbody>
 </table>

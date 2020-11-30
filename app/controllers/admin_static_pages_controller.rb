@@ -8,9 +8,11 @@ class AdminStaticPagesController < ApplicationController
 
   def groupPage
     @admin_groups = Group.all
+    @selected_project = Project.find(params[:selected_project])
   end
 
   def groupMemberPage
+    @selected_group = Group.find(params[:selected_group])
   end
 
   # def studentPage
@@ -20,6 +22,8 @@ class AdminStaticPagesController < ApplicationController
   end
 
   def ratingPage
+    @selected_user = User.find(params[:selected_user])
+    @user_projects = @selected_user.projects.all
   end
 
   def createProjectPage

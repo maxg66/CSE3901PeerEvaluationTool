@@ -15,7 +15,7 @@
     <tbody>
         <% @user_projects.each do |project| %>
         <tr>
-            <td><%= link_to project.p_name,  user_static_pages_groupPage_path  %></td>
+            <td><%= link_to project.p_name,  user_static_pages_groupPage_path(:selected_project =>project.id)  %></td>
             <td><%=project.project_type%></td>
             <td><%=project.due_date%></td>
         </tr>

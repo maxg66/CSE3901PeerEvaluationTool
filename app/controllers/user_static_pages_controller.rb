@@ -28,9 +28,11 @@ class UserStaticPagesController < ApplicationController
 
   def groupPage
     @user_groups = Group.all
+    @selected_project = Project.find(params[:selected_project])
   end
 
   def ratingPage
+    @selected_user = User.find(params[:selected_user])
   end
 
 end
