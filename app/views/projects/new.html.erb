@@ -5,25 +5,21 @@
   <% end %>
 
 <form action="/projects" method="post">
-
-  <div class="container">
-    <div class="space">
-        <label for="project[pname]"><b>Project Name</b></label>
+    <div class="form-group">
+        <label for="project[pname]">Project Name</label>
+        <input type="text" class="form-control" placeholder="Enter Project Name" name="project[p_name]" required>
     </div>
-    <input type="text" placeholder="Enter Project Name" name="project[p_name]" required>
-    
-    <div class="space">
-        <label for="project[ptype]"><b>Project Type</b></label>
+    <div class="form-group">
+        <label for="project[ptype]">Project Type</label>
+        <input type="text" class="form-control" placeholder="Enter Project Type" name="project[project_type]" required>
     </div>
-    <input type="text" placeholder="Enter Project Type" name="project[project_type]" required>
 
-    <div class="space"> 
-        <label for="project[pduedate]"><b>Due Date</b></label>
+    <div class="form-group"> 
+        <label for="project[pduedate]">Due Date</label>
+        <input type="date" class="form-control" placeholder="Enter Project Due Date" name="project[due_date]" required>
     <div>
-    <input type="date" placeholder="Enter Project Due Date" name="project[due_date]" required>
     
-    <div class="space"> 
-        <button type="submit">Add</button>
+    <div id="addProject"> 
+        <button type="submit" class="btn btn-primary">Add Project</button>
     </div>
- 
 </form>

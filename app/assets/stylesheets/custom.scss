@@ -19,20 +19,31 @@ body {
   }
   
   form {
-    text-align:center;
+    padding-left: 5%;
+    padding-right: 5%;
   }
-  
-  input[type=text], input[type=password] {
-    color:black;
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid white;
-    box-sizing: border-box;
-    text-align: left;
-  
+
+  #addProject {
+    padding-top: 20px;
+    text-align: center;
   }
+
+  #addProject button {
+    width: 20%;
+  }
+
+  
+  // input[type=text], input[type=password] {
+  //   color:black;
+  //   width: 60%;
+  //   padding: 12px 20px;
+  //   margin: 8px 0;
+  //   display: inline-block;
+  //   border: 1px solid white;
+  //   box-sizing: border-box;
+  //   text-align: left;
+  
+  // }
   
   // button {
   //   background-color: white;
