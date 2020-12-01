@@ -7,10 +7,55 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # For a page to list all users in specfic group (GET)
+  # Named route: usersInGroup_path
+  def usersInGroup
+    @users = User.all
+    @selected_group = Group.find(params[:selected_group])
+    session[:current_group_id] = @selected_group.id
+  end
+
+  # For a page to view potential new users to a specific group (GET)
+  # Named route: findAvailableUsers_path
+  def findAvailableUsers
+    @current_group = Group.find_by_id(session[:current_group_id])
+    @possible_users = []
+
+    # Check if user is included in current group
+    User.find_each(:batch_size => 5000) do |pos_user|
+      catch :pos_user_cannot_be_added do
+        if (!@current_group.users.include?(pos_user))
+
+          # Checks if user is already added to another group that exists in the current group's projects
+          # (Users should only be added to one group in a single project)
+          # --> Possible user is not added to the possible user array if this is the case
+          @current_group.projects.find_each(:batch_size => 5000) do |project|
+            project.groups.find_each(:batch_size => 5000) do |group|
+              if (group.users.include?(pos_user))
+                throw :pos_user_cannot_be_added
+              end
+            end
+          end
+        end
+        @possible_users << pos_user
+      end
+    end
+  end
+
+  # To add an existing user to a specific group (POST)
+  # Named route: addGroupToProject_path
+  def addUserToGroup
+    @user_to_add = User.find(params[:user_to_add])
+    @current_group = Group.find_by_id(session[:current_group_id])
+    @user_to_add.groups << @current_group
+    redirect_to findAvailableUsers_url, notice: 'User was successfully added.'
+  end
+
   # For a page to show user (GET)
   # Named route: user_path(user)
   def show
     @user = User.find(params[:id])
+    @users = User.all
   end
 
   # For a page to make a new user (GET)

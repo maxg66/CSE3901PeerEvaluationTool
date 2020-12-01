@@ -1,0 +1,17 @@
+<h1>Available Users</h1>
+<table>
+  <th>
+    <tr>
+      <th>Click on a user below to add them to <%=@current_group.g_name%>: </th>
+      <th colspan="3"></th>
+    </tr>
+  </th>
+
+    <tbody>
+        <% @possible_users.each do |user| %>
+        <tr>
+            <td><%= link_to user.u_name,  addUserToGroup_path(:user_to_add => user), method: :post  %></td>
+        </tr
+        <% end %>
+    </tbody>
+</table>

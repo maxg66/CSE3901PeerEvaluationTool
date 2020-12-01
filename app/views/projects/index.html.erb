@@ -1,9 +1,10 @@
 <% provide(:title, "Projects") %>
 <h1>Admin Home</h1>
 
+<%= link_to_primary_button 'Current Students', users_path %>
 <%= link_to_primary_button 'Create New Project', new_project_path %>
-<%= link_to_primary_button 'Create New User', new_user_path %>
 <%= link_to_primary_button 'Create New Group', new_group_path %>
+<%= link_to_primary_button 'Create New Student', new_user_path %>
 
 <h3>Projects</h3>
 
