@@ -5,27 +5,24 @@
   <% end %>
 
 <form action='/users' method="post">
-  
-  <div class="container">
-    <div class="space">
-        <label for="uname"><b>User Name</b></label>
+
+    <div class="form-group">
+        <label for="uname">User Name</label>
+        <input type="text" class="form-control" placeholder="Enter Full Name (Ex: Brutus Buckeye)" name="user[u_name]" required>
     </div>
-    <input type="text" placeholder="Enter Full Name (Ex: Brutus Buckeye)" name="user[u_name]" required>
-    
-    <div class="space">
-        <label for="email"><b>Email</b></label>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" placeholder="Enter Email" name="user[email]" required>
     </div>
-    <input type="text" placeholder="Enter Email" name="user[email]" required>
+
+    <div class="form-group"> 
+        <label for="password">Password</label>
+    <input type="text" class="form-control" placeholder="Enter Password" name="user[password]" required>
+    <div>
     
-    <div class="space">   
-        <label for="password"><b>Password</b></label>
-    </div>
-    <input type="text" placeholder="Enter Password" name="user[password]" required>
-    
-    <div class="space">      
-        <button type="submit">Add</button>
+    <div class="addButton"> 
+        <button type="submit" class="btn btn-primary">Add User</button>
     </div>
  
-  </div>
 </form>
 
