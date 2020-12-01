@@ -2,12 +2,8 @@
 <h1>Evaluations</h1>
 <p>Find me in app/views/user_static_pages/ratingPage.html.erb</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>New Rating for <%=@selected_user.u_name%> </th>
-    </tr>
-  </thead>
+
+ <h2>New Rating for <%=@selected_user.u_name%> </h2>
 
 
   <form action="/addEval" method="post">
@@ -16,23 +12,20 @@
     <label for="eval[pname]"><b>Evaluation Rating (between 1 and 10)</b></label>
     <div>
     <input type="number" min = "1" max = "10" placeholder="Evnter Evaluation Rating" name="eval[rating]" required>
-    
- <div class="space">
-    <label for="eval[comments]"><b>Comments</b></label>
-   <div>
-        <textarea type="text" placeholder="Enter Project Type" name="eval[comments]" required>
-        <div class="space"> 
+    </div>
 
-  <button type="submit">Submit</button>
-  </div>
- 
+    
+  <div class="space">
+      <label for="eval[comments]"><b>Comments</b></label>
+        <div>
+          <textarea type="text" placeholder="Enter Project Type" name="eval[comments]" required>
+          <div class="space"> 
+        </div>
+
+      <button type="submit">Submit</button>
+    </div>
+   </div>
+
 </form>
 
-    <tbody>
-        <%# @user.evals.made.each do |eval| %>
-        <tr>
-            <td><%# should we show the whole eval in the table, or link to another page to see details?  %></td>
-        </tr>
-        <%# end %>
-    </tbody>
-</table>
+   
