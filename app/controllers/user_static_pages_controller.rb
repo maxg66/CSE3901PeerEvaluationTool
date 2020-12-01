@@ -7,9 +7,9 @@ class UserStaticPagesController < ApplicationController
     admin = Admin.find_by(a_email: params[:login][:email].downcase)
 
       if uname && uname.password == params[:login][:psw]
-        redirect_to '/user_static_pages/projectPage.html'
+        redirect_to projects_url
       elsif admin && admin.a_password == params[:login][:psw]
-          redirect_to '/admin_static_pages/projectPage.html'
+          redirect_to projects_url
       else
         flash.now[:danger] = 'Invalid email/password combination' 
         render 'loginPage'
