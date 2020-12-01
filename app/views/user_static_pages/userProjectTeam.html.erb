@@ -1,8 +1,4 @@
-<h1><%= @selected_project.p_name %> Groups</h1>
-
-<%= link_to_primary_button 'Create New Group', new_group_path %>
-<%= link_to_primary_button 'Add Existing Group to ' + @selected_project.p_name, findAvailableGroups_path %>
-
+<h1><%= @specific_project.p_name %>: <%= @specific_group.g_name %> Team Members</h1>
 
 <table class="table table-hover">
   <thead>
@@ -12,9 +8,10 @@
   </thead>
 
     <tbody>
-        <% @selected_project.groups.each do |group| %>
+        <% @specific_group_members.each do |member| %>
         <tr>
-            <td> <%=link_to_button group.g_name, usersInGroup_path(:selected_group => group.id)%>
+            <%#=link_to_button member.u_name, teamEval_path(:specific_user => member.id)%></td>
+            <td> <%=link_to_button member.u_name, usersInGroup_path(:selected_group => member.id)%></td>
         </tr>
         <% end %>
     </tbody>

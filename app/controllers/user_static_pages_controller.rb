@@ -3,11 +3,11 @@ class UserStaticPagesController < ApplicationController
   protect_from_forgery with: :null_session
   
   def loginPageVal
-    @specific_user = User.find_by(email: params[:login][:email].downcase)
+    user = User.find_by(email: params[:login][:email].downcase)
     @admin = Admin.find_by(a_email: params[:login][:email].downcase)
 
-    session = request.session_options[:id]
-    if @specific_user && @specific_user.password == params[:login][:psw]
+    if user #&& @specific_user.password == params[:login][:psw]
+      log_in user
       redirect_to userSpecificProjects_path
       #session[:specific_user_id] = @specific_user.id
     elsif @admin && @admin.a_password == params[:login][:psw]
@@ -21,7 +21,8 @@ class UserStaticPagesController < ApplicationController
   # For a page to list all user specific projects (GET)
   # Named route: userSpecificProjects_path
   def userSpecificProjects
-    @specific_user = User.find_by_id(session[:specific_user_id])
+    @specific_user = User.find(6) #TEMPORARY: REMOVE LATER
+    #@specific_user = current_user
     @specific_user_groups = @specific_user.groups
     @specific_user_projects = []
 
@@ -34,10 +35,17 @@ class UserStaticPagesController < ApplicationController
 
   def userProjectTeam
     @specific_project = Project.find(params[:specific_project])
-    @specific_user = User.find_by_id(session[:specific_user_id])
-    @specific_
+    @specific_user = User.find(6) #TEMPORARY: REMOVE LATER
+    #@specific_user = User.find_by_id(session[:specific_user_id])
+    @specific_group_members = []
+    @specific_group = nil
     @specific_project.groups.find_each(:batch_size => 5000) do |group|
-
+      if(group.users.include?(@specific_user)) 
+        @specific_group = group
+        group.users.each do |member| 
+          @specific_group_members << member
+        end
+      end
     end
   end
 
@@ -67,6 +75,14 @@ class UserStaticPagesController < ApplicationController
 
   # def ratingPage
   #   @selected_user = User.find(params[:selected_user])
+  # end
+
+  # private def user_params
+  #   params.require(:user).permit(:email, :password)
+  # end
+
+  # private def admin_params
+  #   params.require(:admin).permit(:a_email, :a_password)
   # end
 
 end
