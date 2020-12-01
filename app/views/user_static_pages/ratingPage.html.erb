@@ -9,6 +9,25 @@
     </tr>
   </thead>
 
+
+  <form action="/addEval" method="post">
+
+  <div class="container">
+    <label for="eval[pname]"><b>Evaluation Rating (between 1 and 10)</b></label>
+    <div>
+    <input type="number" min = "1" max = "10" placeholder="Evnter Evaluation Rating" name="eval[rating]" required>
+    
+ <div class="space">
+    <label for="eval[comments]"><b>Comments</b></label>
+   <div>
+        <textarea type="text" placeholder="Enter Project Type" name="eval[comments]" required>
+        <div class="space"> 
+
+  <button type="submit">Submit</button>
+  </div>
+ 
+</form>
+
     <tbody>
         <%# @user.evals.made.each do |eval| %>
         <tr>

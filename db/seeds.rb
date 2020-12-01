@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(u_name: "test1", email: "test.1@osu.edu", password: "test1pass", account_type:"admin", created_at: Date.new(2020,11,28).to_time.to_i, updated_at: Date.new(2020,11,29).to_time.to_i)
+User.create(u_name: "test1", email: "test.1@osu.edu", password: "test1pass", created_at: Date.new(2020,11,28).to_time.to_i, updated_at: Date.new(2020,11,29).to_time.to_i)
+
+Admin.create(a_name: "test2", a_email: "test.2@osu.edu", a_password: "test2pass", created_at: Date.new(2020,11,28).to_time.to_i, updated_at: Date.new(2020,11,29).to_time.to_i)
+
