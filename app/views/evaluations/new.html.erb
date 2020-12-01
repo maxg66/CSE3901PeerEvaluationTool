@@ -8,22 +8,19 @@
 
   <form action="/addEval" method="post">
 
-  <div class="container">
-    <label for="eval[pname]"><b>Evaluation Rating (between 1 and 10)</b></label>
-    <div>
-    <input type="number" min = "1" max = "10" placeholder="Evnter Evaluation Rating" name="eval[rating]" required>
+
+
+   <div class="form-group">
+        <label for="eval[pname]">Evaluation Rating (between 1 and 10)</label>
+    <input class="form-control" type="number" min = "1" max = "10" placeholder="Enter Evaluation Rating" name="eval[rating]" required>
+    </div>
+    <div class="form-group">
+      <label for="eval[comments]">Comments</label>
+          <textarea class="form-control" type="text" placeholder="Add comments..." name="eval[comments]" required></textarea>
     </div>
 
-    
-  <div class="space">
-      <label for="eval[comments]"><b>Comments</b></label>
-        <div>
-          <textarea type="text" placeholder="Enter Project Type" name="eval[comments]" required>
-          <div class="space"> 
-        </div>
-
-      <button type="submit">Submit</button>
+    <div class="addButton"> 
+        <button type="submit" class="btn btn-primary">Add Evaluation</button>
     </div>
-   </div>
 
 </form>
