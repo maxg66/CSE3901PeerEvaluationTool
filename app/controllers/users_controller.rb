@@ -36,8 +36,8 @@ class UsersController < ApplicationController
               end
             end
           end
+          @possible_users << pos_user
         end
-        @possible_users << pos_user
       end
     end
   end

@@ -1,0 +1,26 @@
+<% provide(:title, @current_user.u_name + "'s Projects") %>
+<h1>Student Home</h1>
+
+<%= link_to_primary_button 'All Current Students', users_path %>
+
+<h3>Your Projects</h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Due</th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @specific_user_projects.each do |project| %>
+        <tr>
+            <td><%= link_to project.p_name, userProjectTeam_url(:specific_project => project.id) %></td>
+            <td><%=project.project_type%></td>
+            <td><%=project.due_date%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
