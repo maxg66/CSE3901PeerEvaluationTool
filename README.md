@@ -10,10 +10,10 @@ The user view then proceeeds to a project page that lists the projects the stude
 
 The administrator's view, after login, leads them to a project page which lists the the current projects that are assigned. The administrator has the option here of creating new projects for their class. From this page the admin can either route to a page that allows them to create new users and groups or click on a project which will lead them to the groups that exist for that particular project. They can then click into a group a see the students that are in the respective group. Finally, the administrator can click on a students name which will allow them to see the evaluations the student was given by their peers.
 
-To create this site, we used Ruby on Rails Tutorial by Michael Hartl to set up the skeleton of the page, and further styled it with Bootstrap and CSS. 
+To create this site, we used the Ruby on Rails Tutorial by Michael Hartl to set up the skeleton of the page, and further styled it with Bootstrap and CSS. 
 
 
-The test files for this project are located in the test/controllers path in the admin_static_pages_controller_test.rb and user_static_pages_controller_test.rb files. 
+The test files for this project are located in the test folder and test cases have been created for the controllers and models 
 The test can be run using the command below
 
 ```
