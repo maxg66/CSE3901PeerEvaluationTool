@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   # For a page to list all admins (GET)
   # Named route: admins_path
   def index
@@ -8,19 +10,20 @@ class AdminsController < ApplicationController
   # For a page to show admin (GET)
   # Named route: admin_path(admin)
   def show
-    @admins = Admin.find(params[:id])
+    @admin = Admin.find(params[:id])
+    @admins = Admin.all
   end
 
   # For a page to make a new admin (GET)
   # Named route: new_admin_path
   def new
-    @admins = Admin.new
+    @admin = Admin.new
   end
 
   # To create a new admin (POST)
   # Named route: admins_path
   def create
-    @admins = Admin.new(admin_params)
+    @admin = Admin.new(admin_params)
 
     respond_to do |format|
       if @admin.save

@@ -32,10 +32,10 @@ Rails.application.routes.draw do
   get '/findAvailableUsers' => 'users#findAvailableUsers'
   resources :admins
   resources :groups
-  resources :projects
   get '/groupsInProject' => 'groups#groupsInProject'
   post '/addGroupToProject' => 'groups#addGroupToProject'
   get '/findAvailableGroups' => 'groups#findAvailableGroups'
+  resources :projects
   
   resources :evaluations
 end
