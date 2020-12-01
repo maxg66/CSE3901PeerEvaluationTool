@@ -1,0 +1,21 @@
+<h1><%= @selected_group.g_name %> Members</h1>
+
+<%= link_to_primary_button 'Create New Student', new_user_path %>
+<%= link_to_primary_button 'Add Existing Student to ' + @selected_group.g_name, findAvailableUsers_path %>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @selected_group.users.each do |user| %>
+        <tr>
+            <td> <%=link_to_button user.u_name, usersInGroup_path(:selected_user => user.id)%>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

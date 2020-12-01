@@ -73,6 +73,10 @@ class AdminStaticPagesController < ApplicationController
     @user_projects = @selected_user.projects.all
   end
 
+  def valEvaluation
+    eval = Evaluation.new
+  end
+
   def createProjectPage
   end
 

@@ -12,3 +12,21 @@
 
 <button type="button"><%= link_to 'Create Another User', new_user_path %></button>
 <button type="button"><%= link_to 'Projects', admin_static_pages_projectPage_path %></button>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Current Students</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.u_name %></td>
+            <td><%= user.email %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -15,13 +15,8 @@ class GroupsController < ApplicationController
     session[:current_project_id] = @selected_project.id
   end
 
-  def addGroupToProject
-    @group_to_add = Group.find(params[:group_to_add])
-    @current_project = Project.find_by_id(session[:current_project_id])
-    @group_to_add.projects << @current_project
-    redirect_to findAvailableGroups_url, notice: 'Group was successfully added.'
-  end
-
+  # For a page to view groups that have not yet been added to a specific project (GET)
+  # Named route: findAvailableGroups_path
   def findAvailableGroups
     @current_project = Project.find_by_id(session[:current_project_id])
     @possible_groups = []
@@ -30,6 +25,15 @@ class GroupsController < ApplicationController
         @possible_groups << group
       end
     end
+  end
+
+  # To add an existing group to a specific project (POST)
+  # Named route: addGroupToProject_path
+  def addGroupToProject
+    @group_to_add = Group.find(params[:group_to_add])
+    @current_project = Project.find_by_id(session[:current_project_id])
+    @group_to_add.projects << @current_project
+    redirect_to findAvailableGroups_url, notice: 'Group was successfully added.'
   end
 
   # For a page to show group (GET)
@@ -76,7 +80,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'group was successfully destroyed.' }
+      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

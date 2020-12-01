@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   resources :users
   post '/users' => 'users#create'
+  get '/usersInGroup' => 'users#usersInGroup'
+  post '/addUserToGroup' => 'users#addUserToGroup'
+  get '/findAvailableUsers' => 'users#findAvailableUsers'
   resources :admins
   resources :groups
   resources :projects

@@ -1,5 +1,4 @@
-<h1>Group</h1>
-<p>Find me in app/views/admin_static_pages/groupPage.html.erb</p>
+<h1><%= @selected_project.p_name %> Groups</h1>
 
 <%= link_to_primary_button 'Create New Group', new_group_path %>
 <%= link_to_primary_button 'Add Existing Group to ' + @selected_project.p_name, findAvailableGroups_path %>
@@ -8,14 +7,14 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Groups for <%=@selected_project.p_name%></th>
+      <th></th>
     </tr>
   </thead>
 
     <tbody>
         <% @selected_project.groups.each do |group| %>
         <tr>
-            <td> <%=link_to_button group.g_name, admin_static_pages_groupMemberPage_path(:selected_group => group.id)%>
+            <td> <%=link_to_button group.g_name, usersInGroup_path(:selected_group => group.id)%>
         </tr>
         <% end %>
     </tbody>

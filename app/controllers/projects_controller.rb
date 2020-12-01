@@ -8,16 +8,12 @@ class ProjectsController < ApplicationController
   end
 
   # For a page to list all project groups (GET)
-  # Named route: groups_path
+  # Named route: projects_path
   def projectGroups
     @groups = Group.all
     @selected_project = Project.find(params[:selected_project])
   end
 
-  def groupPage
-    @admin_groups = Group.all
-    @selected_project = Project.find(params[:selected_project])
-  end
   # For a page to show project (GET)
   # Named route: project_path(project)
   def show
