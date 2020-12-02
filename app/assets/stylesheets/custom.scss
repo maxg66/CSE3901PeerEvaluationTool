@@ -14,7 +14,7 @@ header {
 }
 
 body {
-  background-image: url("foodies_project6/app/assets/images/background.jpeg");
+  background-image: url("../images/background.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -36,7 +36,8 @@ body {
 .labFormat{
   font-weight: bold;
 }
-  .centerBackgroundProjects{
+
+.centerBackgroundProjects{
   background:white;
   color: black;
   text-align: center;
@@ -45,16 +46,9 @@ body {
   margin-bottom: 125px;
   margin-right: 25px;
   margin-left: 25px;
-  padding: 3% 7% 4% 7%;
-    
+  padding: 3% 7% 4% 7%;    
 }
 
-
-
-.labFormat{
-  font-weight: bold;
-}
-  
   h2,b{
     text-align: center;
     color:white;
