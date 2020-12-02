@@ -3,11 +3,11 @@ class UserStaticPagesController < ApplicationController
   protect_from_forgery with: :null_session
   
   def loginPageVal
-    user = User.find_by(email: params[:login][:email].downcase)
+    @specific_user = User.find_by(email: params[:login][:email].downcase)
     @admin = Admin.find_by(a_email: params[:login][:email].downcase)
 
-    if user #&& @specific_user.password == params[:login][:psw]
-      log_in user
+    if @specific_user && @specific_user.password == params[:login][:psw]
+      log_in @specific_user
       redirect_to userSpecificProjects_path
       #session[:specific_user_id] = @specific_user.id
     elsif @admin && @admin.a_password == params[:login][:psw]
@@ -21,8 +21,8 @@ class UserStaticPagesController < ApplicationController
   # For a page to list all user specific projects (GET)
   # Named route: userSpecificProjects_path
   def userSpecificProjects
-    @specific_user = User.find(6) #TEMPORARY: REMOVE LATER
-    #@specific_user = current_user
+    #@specific_user = User.find(6) #TEMPORARY: REMOVE LATER
+    @specific_user = current_user
     @specific_user_groups = @specific_user.groups
     @specific_user_projects = []
 
