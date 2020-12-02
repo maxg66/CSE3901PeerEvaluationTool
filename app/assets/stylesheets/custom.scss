@@ -3,7 +3,8 @@
 
 header {
   padding-top: 2%;
-  background-color: gray;
+  // background-color: gray;
+  border-bottom: 1px solid ghostwhite;
 }
 
 .header_title {
@@ -129,3 +130,9 @@ body {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 // .dropdown:hover #dropbtn {background-color: #3e8e41;}
+
+footer {
+  text-align: right;
+  border-top: 1px solid ghostwhite;
+  padding-right: 1%;
+}
