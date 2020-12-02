@@ -14,7 +14,7 @@ header {
 }
 
 body {
-  background-image: url("background.jpeg");
+  background-image: url("triangle.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -25,11 +25,11 @@ body {
   color: black;
   text-align: center;
   border-radius: 40px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-right: 125px;
-  margin-left: 125px;
-  padding: 12% 10% 12% 10%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  margin-right: 300px;
+  margin-left: 300px;
+  padding: 3% 3% 3% 3%;
     
 }
 
@@ -52,6 +52,7 @@ body {
   h2,b{
     text-align: center;
     color:white;
+    background:white;
     padding: 12px 20px;
   
   }
@@ -64,6 +65,11 @@ body {
     padding-left: 5%;
     padding-right: 5%;
   }
+
+input{
+  width: 25%;
+}
+  
 
   .addButton {
     padding-top: 20px;
@@ -80,7 +86,7 @@ body {
   }
 
   .enterButton {
-    background-color: #8b0000; /* Maroon */
+    background-color: #F03B3B; /* Red */
     border: none;
     color: white;
     padding: 5px 5px;
