@@ -1,31 +1,29 @@
 <% provide(:title, "Login") %>
 <body>
-
+<div class="centerBackground">
 <h1>Peer Evaluation Tool Login</h1>
-
 <% flash.each do |message_type, message| %>       
   <div><%= message %></div>    
 <% end %>
-
 <form action="/loginVal" method="post">
-
-
+<div class="space">
 
   <div class="form-group">
-    <input type = "hidden" name = "authenticity_token" value = "<%=form_authenticity_token%>">
-    <label for="login[uname]">OSU Email</label>
+    <label class="labFormat" for="login[uname]">OSU Email:</label>
     <input type="text" class="form-control" placeholder="Enter Email" name="login[email]" required>
     </div>
     <div class="form-group">
-    <label for="login[psw]">Password</label>
+      <div class="space">
+    <label for="login[psw]" class="labFormat">Password:</label>
     <input type="password" class="form-control" placeholder="Enter Password" name="login[psw]" required>
         Email must be in name.#@osu.edu format
     </div>
+<div class="space">
 
-    <div class="addButton"> 
-        <button type="submit" class="btn btn-primary">Login</button>
+    <div class="enterButton"> 
+        <button type="submit" class="enterButton">Login</button>
     </div>
- 
+  </div>
 </form>
-
+</div>
 </body>
