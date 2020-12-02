@@ -35,8 +35,8 @@ class UserStaticPagesController < ApplicationController
 
   def userProjectTeam
     @specific_project = Project.find(params[:specific_project])
-    @specific_user = User.find(6) #TEMPORARY: REMOVE LATER
-    #@specific_user = User.find_by_id(session[:specific_user_id])
+    #@specific_user = User.find(6) #TEMPORARY: REMOVE LATER
+    @specific_user = User.find_by_id(session[:specific_user_id])
     @specific_group_members = []
     @specific_group = nil
     @specific_project.groups.find_each(:batch_size => 5000) do |group|
