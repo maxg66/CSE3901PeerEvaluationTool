@@ -17,7 +17,7 @@
     <tbody>
         <% @specific_user_projects.each do |project| %>
         <tr>
-            <td><%= link_to project.p_name, userProjectTeam_url(:specific_project => project.id) %></td>
+            <td><%= link_to project.p_name, userProjectTeam_path(:specific_project => project.id) %></td>
             <td><%=project.project_type%></td>
             <td><%=project.due_date%></td>
         </tr>

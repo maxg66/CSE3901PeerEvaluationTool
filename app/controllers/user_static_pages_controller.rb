@@ -9,7 +9,7 @@ class UserStaticPagesController < ApplicationController
     if @specific_user && @specific_user.password == params[:login][:psw]
       log_in @specific_user
       redirect_to userSpecificProjects_path
-      #session[:specific_user_id] = @specific_user.id
+      session[:specific_user_id] = @specific_user.id
     elsif @admin && @admin.a_password == params[:login][:psw]
         redirect_to projects_url
     else
@@ -34,6 +34,7 @@ class UserStaticPagesController < ApplicationController
   end
 
   def userProjectTeam
+    #byebug
     @specific_project = Project.find(params[:specific_project])
     #@specific_user = User.find(6) #TEMPORARY: REMOVE LATER
     @specific_user = User.find_by_id(session[:specific_user_id])

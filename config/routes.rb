@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'user_static_pages/projectPage'
   get 'user_static_pages/groupPage'
   get 'user_static_pages/ratingPage'
+  get '/userProjectTeam' => 'user_static_pages#userProjectTeam'
+  
   post '/loginVal' => 'user_static_pages#loginPageVal'
   # post '/addProject' => 'admin_static_pages#valAddProject'
   # get '/navAddProj' => 'admin_static_pages#createProjectPage'
