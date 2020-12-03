@@ -1,3 +1,5 @@
+<div class="centerBackground">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,8 +12,8 @@
   <%= @user.email %>
 </p>
 
-<button type="button"><%= link_to 'Create Another User', new_user_path %></button>
-<button type="button"><%= link_to 'Projects', projects_path %></button>
+<button type="button" class ="submitBtn"><%= link_to 'Create Another User', new_user_path %></button>
+<button type="button" class ="submitBtn"><%= link_to 'Projects', projects_path %></button>
 
 <table class="table table-hover">
   <thead>
@@ -30,5 +32,5 @@
         <% end %>
     </tbody>
 </table>
-
+</div>
 <%= render 'layouts/footer' %>

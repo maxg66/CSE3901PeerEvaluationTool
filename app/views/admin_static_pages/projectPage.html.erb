@@ -1,33 +1,33 @@
 <% provide(:title, "Projects") %>
 <body>
 <div class="centerBackground">
-<h1>Admin Home</h1>
-<p>Find me in app/views/admin_static_pages/projectPage.html.erb</p>
+  <h1>Admin Home</h1>
+  <p>Find me in app/views/admin_static_pages/projectPage.html.erb</p>
 
-<div class="btn-group">
-<%= link_to '<button class="btn btn-primary">Add Project</button>'.html_safe, '/navAddProj' %>
-<%= link_to '<button class="btn btn-primary">Add User</button>'.html_safe, new_user_path %>
-</div>
+  <div class="btn-group">
+  <%= link_to '<button class="btn btn-primary">Add Project</button>'.html_safe, '/navAddProj' %>
+  <%= link_to '<button class="btn btn-primary">Add User</button>'.html_safe, new_user_path %>
+  </div>
 
-<h3>Projects</h3>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Due</th>
-    </tr>
-  </th>
+  <h3>Projects</h3>
+  <table class="table table-hover">
+    <th>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Due</th>
+      </tr>
+    </th>
 
-    <tbody>
-        <% @admin_projects.each do |project| %>
-        <tr>
-            <td><%= link_to project.p_name,  admin_static_pages_groupPage_path(:selected_project =>project.id)  %></td>
-            <td><%=project.project_type%></td>
-            <td><%=project.due_date%></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+      <tbody>
+          <% @admin_projects.each do |project| %>
+          <tr>
+              <td><%= link_to project.p_name,  admin_static_pages_groupPage_path(:selected_project =>project.id)  %></td>
+              <td><%=project.project_type%></td>
+              <td><%=project.due_date%></td>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
 </div>
 </body>

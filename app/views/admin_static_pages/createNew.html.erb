@@ -1,4 +1,5 @@
 <body>
+<div class="centerBackground">
 
   <h2>Add User</h2>
   <% flash.each do |message_type, message| %>       
@@ -30,7 +31,7 @@
                   <input type="text" placeholder="Admin or User" name="user[account_type]" required>
                   <div class="space">  
     
-  <button type="submit">Add</button>
+  <button type="submit" class ="submitBtn">Add</button>
   </div>
 
 </form>
@@ -45,7 +46,7 @@
     <div>
     <input type="text" placeholder="Enter Group Name" name="group[g_name]" required>
     
-  <button type="submit">Add</button>
+  <button type="submit" class ="submitBtn">Add</button>
   </div>
 
 </form>
@@ -65,8 +66,9 @@
     <div>
         <input type="text" placeholder="Enter Group Name" name="addU[g_name]" required>
         <div class="space"> 
-  <button type="submit">Add to Group</button>
+  <button type="submit" class ="submitBtn">Add to Group</button>
   </div>
  
 </form>
+<div>
 </body>
