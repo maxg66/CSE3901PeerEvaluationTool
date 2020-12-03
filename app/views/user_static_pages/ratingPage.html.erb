@@ -1,32 +1,29 @@
 <% provide(:title, "Ratings") %>
 <div class="centerBackground">
-<h1>Evaluations</h1>
-<p>Find me in app/views/user_static_pages/ratingPage.html.erb</p>
 
-
- <h2>New Rating for <%=@selected_user.u_name%> </h2>
-
+  <h1>Evaluation for <%=@team_member.u_name %></h1>
 
   <form action="/addEval" method="post">
 
-  <div class="container">
-    <label for="eval[rating]"><b>Evaluation Rating (between 1 and 10)</b></label>
-    <div>
-    <input type="number" min = "1" max = "10" placeholder="Enter Evaluation Rating" name="eval[rating]" required>
+  <div class="form-group">
+  <label for="eval[rating]">Student Evaluated</label>
+  <input type="text" placeholder="Enter Student Being Evaluated" name="eval[student_evaluated]" required>
+</div>
+
+    <div class="form-group">
+      <label for="eval[rating]">Evaluation Rating (between 1 and 10)</label>
+      <input type="number" min = "1" max = "10" placeholder="Enter Evaluation Rating" name="eval[rating]" required>
     </div>
 
-    
-  <div class="space">
-      <label for="eval[comments]"><b>Comments</b></label>
-        <div>
-          <textarea type="text" placeholder="Enter Project Type" name="eval[comments]" required></textarea>
-        <div class="space"> 
-        </div>
-
-      <button type="submit" class ="submitBtn">Submit</button>
+    <div class="form-group">
+      <label for="eval[content]"><b>Comments</b></label>
+      <textarea type="text" placeholder="Enter Comments for Team Member Here" name="eval[content]" required></textarea>
     </div>
-   </div>
 
-</form>
+    <div class="addButton"> 
+      <button type="submit" class="btn btn-danger">Submit Evaluation</button>
+    </div>
+
+  </form>
 
    </div>

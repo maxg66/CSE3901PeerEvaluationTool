@@ -1,5 +1,5 @@
 <div class="centerBackground">
-<h1><%= @specific_project.p_name %>: <%= @specific_group.g_name %> Team Members</h1>
+<h1><%= @specific_project.p_name %>: <%= @specific_group.g_name %> Team Evaluations</h1>
 
 <table class="table table-hover">
   <thead>
@@ -11,7 +11,7 @@
     <tbody>
         <% @specific_group_members.each do |member| %>
         <tr>
-            <%=link_to_button member.u_name, teamEval_path(:specific_user => member.id)%></td>
+            <%=link_to_button member.u_name, ratingPage_path(:team_member => member.id)%></td>
         </tr>
         <% end %>
     </tbody>

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   root 'user_static_pages#loginPage'
   get '/userSpecificProjects' => 'user_static_pages#userSpecificProjects'
   get '/currentStudents' => 'user_static_pages#currentStudents'
+  get '/ratingPage' => 'user_static_pages#ratingPage'
+  get '/addEval' => 'user_static_pages#addEval'
+  get '/evalAddSuccess' => 'user_static_pages#evalAddSuccess'
   get 'user_static_pages/projectPage'
   get 'user_static_pages/groupPage'
-  get 'user_static_pages/ratingPage'
   get '/userProjectTeam' => 'user_static_pages#userProjectTeam'
   get '/teamEval' => 'user_static_pages#ratingPage'
   

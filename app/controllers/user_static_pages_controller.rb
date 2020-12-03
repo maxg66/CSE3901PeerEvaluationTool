@@ -40,9 +40,8 @@ class UserStaticPagesController < ApplicationController
   end
 
   def userProjectTeam
-    #byebug
     @specific_project = Project.find(params[:specific_project])
-    #@specific_user = User.find(6) #TEMPORARY: REMOVE LATER
+    session[:specific_project_id] = @specific_project.id
     @specific_user = User.find_by_id(session[:specific_user_id])
     @specific_group_members = []
     @specific_group = nil
@@ -57,11 +56,32 @@ class UserStaticPagesController < ApplicationController
   end
 
   def ratingPage
-    @selected_user = User.find_by_id(params[:specific_user])
+    @team_member = User.find_by(params[:team_member])
+    session[:team_member_id] = @team_member.id
   end
 
-  def addEval
+  def evalAddSuccess
+    @eval = Group.find(params[:id])
+  end
 
+  # To add single student team member evaluation to database (POST)
+  # Named route: addGroupToProject_path
+  def addEval
+    @team_member = User.find_by_id(session[:team_member_id])
+    @specific_user = User.find_by_id(session[:specific_user_id])
+    @current_project = Project.find_by_id(session[:specific_project_id])
+
+    # Klass.create subject: 'Maths', student: bart, tutor: edna
+    # object = Student.new(:name => "a", :age => 2)
+    #@evaluation = Evaluation.new(student_evaluated: params[:student_evaluated], content: params[:content], rating: params[:rating], user: @specific_user, project: @current_project)
+    @evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], rating: params[:rating], user: @specific_user, project: @current_project)
+      if @evaluation.save
+        format.html { redirect_to @evalAddSuccess, notice: 'Evaluation was successfully created.' }
+        format.json { render :evalAddSuccess, status: :created, location: @evalAddSuccess }
+      else
+        redirect_to userSpecificProjects_url
+        #format.html { render :ratingPage_path(:team_member => @team_member.id) }
+      end
   end
 
   # def usersInGroup
