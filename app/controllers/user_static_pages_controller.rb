@@ -78,15 +78,24 @@ class UserStaticPagesController < ApplicationController
   # To add single student team member evaluation to database (POST)
   # Named route: addGroupToProject_path
   def addEval
-    @team_member = User.find_by_id(session[:team_member_id])
-    @specific_user = User.find_by_id(session[:specific_user_id])
-    @current_project = Project.find_by_id(session[:specific_project_id])
+    #puts "hi student being evaluatied"
+    #puts params[:evaluation][:student_evaluated]
+    #@team_member = User.find_by(u_name: params[:evaluation][:student_evaluated])
+    @specific_user = User.find_by(u_name: params[:evaluation][:student_evaluating])
+    @current_project = Project.find_by(p_name: params[:evaluation][:project])
+
+    #puts "start11"
+    #puts @team_member.inspect
+    #puts @specific_user.inspect
+    #puts @current_project.inspect
 
     # Klass.create subject: 'Maths', student: bart, tutor: edna
     # object = Student.new(:name => "a", :age => 2)
-    #@evaluation = Evaluation.new(student_evaluated: params[:student_evaluated], content: params[:content], rating: params[:rating], user: @specific_user, project: @current_project)
-    @evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], 
-    rating: params[:rating], user: @specific_user, project: @current_project)
+    @evaluation = Evaluation.new(student_evaluated: params[:evaluation][:student_evaluated], content: params[:evaluation][:content], rating: params[:evaluation][:rating], user: @specific_user, project: @current_project)
+    puts "hi2"
+    puts @evaluation.inspect
+    #@evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], 
+    #rating: params[:rating], user: @specific_user, project: @current_project)
       if @evaluation.save
         format.html { redirect_to @evalAddSuccess, notice: 'Evaluation was successfully created.' }
         format.json { render :evalAddSuccess, status: :created, location: @evalAddSuccess }

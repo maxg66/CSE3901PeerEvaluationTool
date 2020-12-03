@@ -4,19 +4,30 @@
   <h1>Evaluation for <%=@team_member.u_name %></h1>
 
   <form action="/addEval" method="post">
-
-  <div class="form-group">
-  <label for="eval[rating]">Student Evaluated</label>
-  <input type="text" placeholder="Enter Student Being Evaluated" name="evaluation[student_evaluated]" required>
-</div>
+  <input type = "hidden" name = "authenticity_token" value = "<%=form_authenticity_token%>">
 
     <div class="form-group">
-      <label for="eval[rating]">Evaluation Rating (between 1 and 10)</label>
+      <label for="evaluation[student_evaluating]">Student Evaluating</label>
+      <input type="text" placeholder="Enter Student Being Evaluated" name="evaluation[student_evaluating]" required>
+    </div>
+
+    <div class="form-group">
+      <label for="evaluation[student_evaluated]">Student Evaluated</label>
+      <input type="text" placeholder="Enter Student Being Evaluated" name="evaluation[student_evaluated]" required>
+    </div>
+
+    <div class="form-group">
+      <label for="evaluation[project]">Project Needing Evaluation</label>
+      <input type="text" placeholder="Project Needing Evaluation" name="evaluation[project]" required>
+    </div>
+
+    <div class="form-group">
+      <label for="evaluation[rating]">Evaluation Rating (between 1 and 10)</label>
       <input type="number" min = "1" max = "10" placeholder="Enter Evaluation Rating" name="evaluation[rating]" required>
     </div>
 
     <div class="form-group">
-      <label for="eval[content]">Comments</label>
+      <label for="evaluation[content]">Comments</label>
       <textarea type="text" placeholder="Enter Comments for Team Member Here" name="evaluation[content]" required></textarea>
     </div>
 
