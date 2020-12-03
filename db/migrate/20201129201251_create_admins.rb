@@ -13,6 +13,6 @@ class CreateAdmins < ActiveRecord::Migration[6.0]
       # t.index [:user_id, :admin_id]
     end
 
-    add_index :admins, :email, unique: true
+    add_index :admins, :a_email, unique: true
   end
 end
