@@ -3,7 +3,6 @@ class UserStaticPagesController < ApplicationController
   protect_from_forgery with: :null_session
   
   def loginPageVal
-    skip_before_filter :verify_authenticity_token
     @specific_user = User.find_by(email: params[:login][:email].downcase)
     @admin = Admin.find_by(a_email: params[:login][:email].downcase)
 
