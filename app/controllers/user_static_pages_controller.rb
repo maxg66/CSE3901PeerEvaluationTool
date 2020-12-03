@@ -9,7 +9,8 @@ class UserStaticPagesController < ApplicationController
     if @specific_user && @specific_user.password == params[:login][:psw]
       log_in @specific_user
       redirect_to userSpecificProjects_path
-      session[:specific_user_id] = @specific_user.id
+      current_user
+      #session[:specific_user_id] = @specific_user.id
     elsif @admin && @admin.a_password == params[:login][:psw]
         redirect_to projects_url
     else
@@ -57,6 +58,8 @@ class UserStaticPagesController < ApplicationController
 
   def ratingPage
     @team_member = User.find_by(params[:team_member])
+    #save_team_member @team_member
+    #team_member
     session[:team_member_id] = @team_member.id
   end
 
@@ -74,7 +77,8 @@ class UserStaticPagesController < ApplicationController
     # Klass.create subject: 'Maths', student: bart, tutor: edna
     # object = Student.new(:name => "a", :age => 2)
     #@evaluation = Evaluation.new(student_evaluated: params[:student_evaluated], content: params[:content], rating: params[:rating], user: @specific_user, project: @current_project)
-    @evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], rating: params[:rating], user: @specific_user, project: @current_project)
+    @evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], 
+    rating: params[:rating], user: @specific_user, project: @current_project)
       if @evaluation.save
         format.html { redirect_to @evalAddSuccess, notice: 'Evaluation was successfully created.' }
         format.json { render :evalAddSuccess, status: :created, location: @evalAddSuccess }
