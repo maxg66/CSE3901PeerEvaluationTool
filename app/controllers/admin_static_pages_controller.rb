@@ -94,4 +94,8 @@ class AdminStaticPagesController < ApplicationController
   private def project_parms
       params.require(:project).permit(:p_name, :project_type, :due_date)
   end
+
+  def ratingPage
+    @selected_user = User.find_by_id(params[:selected_user])
+  end
 end

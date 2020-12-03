@@ -19,8 +19,7 @@
     <tbody>
         <% @selected_group.users.each do |user| %>
         <tr>
-            <td><%# should be changed to userEvaluations_path(:selected_user => user.id) %></td>
-            <td> <%=link_to_button user.u_name, usersInGroup_path(:selected_user => user.id)%></td>
+            <td> <%=link_to_button user.u_name, userEvaluations_path(:selected_user => user.id)%></td>
         </tr>
         <% end %>
     </tbody>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'user_static_pages/ratingPage'
   get '/userProjectTeam' => 'user_static_pages#userProjectTeam'
   get '/teamEval' => 'user_static_pages#ratingPage'
+  get '/userEvaluations' => 'admin_static_pages#ratingPage'
   
   post '/loginVal' => 'user_static_pages#loginPageVal'
   post '/addEval' => 'user_static_pages#addEval'
