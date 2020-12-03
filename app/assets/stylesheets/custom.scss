@@ -3,7 +3,7 @@
 
 header {
   padding-top: 2%;
-  // background-color: gray;
+  background-color: rgba(0,0,0,0.4);
   border-bottom: 1px solid ghostwhite;
 }
 
@@ -25,10 +25,10 @@ body {
   color: black;
   text-align: center;
   border-radius: 40px;
-  margin-top: 60px;
-  margin-bottom: 50px;
-  margin-right: 300px;
-  margin-left: 300px;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  margin-right: 10%;
+  margin-left: 10%;
   padding: 3% 3% 3% 3%;
     
 }
@@ -133,6 +133,8 @@ input{
 
 footer {
   text-align: right;
+  color: white;
   border-top: 1px solid ghostwhite;
+  background-color: rgba(0,0,0,0.4);
   padding-right: 1%;
 }

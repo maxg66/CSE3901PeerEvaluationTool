@@ -2,6 +2,8 @@
 <header>
 <%= render 'layouts/header' %>
 </header>
+
+<div class="centerBackground">
 <h1>Admin Home</h1>
 <%= link_to_primary_button 'Current Students', users_path %>
 <%= link_to_primary_button 'Current Admins', admins_path %>
@@ -28,5 +30,6 @@
         <% end %>
     </tbody>
 </table>
+</div>
 
 <%= render 'layouts/footer' %>
