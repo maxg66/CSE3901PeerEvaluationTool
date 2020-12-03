@@ -10,7 +10,11 @@ class UserStaticPagesController < ApplicationController
       log_in @specific_user
       redirect_to userSpecificProjects_path
       current_user
-      #session[:specific_user_id] = @specific_user.id
+      session[:specific_user_id] = @specific_user.id
+      puts "start4"
+      puts session[:specific_user_id]
+      puts "end4"
+
     elsif @admin && @admin.a_password == params[:login][:psw]
         redirect_to projects_url
     else
@@ -44,6 +48,10 @@ class UserStaticPagesController < ApplicationController
     @specific_project = Project.find(params[:specific_project])
     session[:specific_project_id] = @specific_project.id
     @specific_user = User.find_by_id(session[:specific_user_id])
+    puts "start3"
+    puts @specific_user.inspect
+    puts session[:specific_user_id]
+    puts "end3"
     @specific_group_members = []
     @specific_group = nil
     @specific_project.groups.find_each(:batch_size => 5000) do |group|
