@@ -10,8 +10,7 @@
     <tbody>
         <% @specific_group_members.each do |member| %>
         <tr>
-            <%#=link_to_button member.u_name, teamEval_path(:specific_user => member.id)%></td>
-            <td> <%=link_to_button member.u_name, usersInGroup_path(:selected_group => member.id)%></td>
+            <%=link_to_button member.u_name, teamEval_path(:specific_user => member.id)%></td>
         </tr>
         <% end %>
     </tbody>
