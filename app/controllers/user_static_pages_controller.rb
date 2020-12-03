@@ -50,6 +50,14 @@ class UserStaticPagesController < ApplicationController
     end
   end
 
+  def ratingPage
+    @selected_user = User.find_by_id(params[:specific_user])
+  end
+
+  def addEval
+
+  end
+
   # def usersInGroup
   #   @users = User.all
   #   @selected_group = Group.find(params[:selected_group])
