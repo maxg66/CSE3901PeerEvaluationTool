@@ -1,12 +1,14 @@
 <% provide(:title, "Ratings") %>
 <div class="centerBackground">
 
-<h1>Ratings</h1>
+<h1>Evaluations for <%=@selected_user.u_name%></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Evaluations for <%=@selected_user.u_name%></th>
+      <th>Project Name</th>
+      <th>Rating</th>
+      <th>Content</th>
     </tr>
   </thead>
 
@@ -21,5 +23,4 @@
     </tbody>
 </table>
 
-<p>Find me in app/views/admin_static_pages/ratingPage.html.erb</p>
 </div>
