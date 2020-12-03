@@ -1,0 +1,24 @@
+<div class="centerBackground">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student Evaluated: </strong>
+  <%= @eval.student_evaluated %>
+</p>
+
+<p>
+  <strong>Rating: </strong>
+  <%= @eval.rating %>
+</p>
+
+<p>
+  <strong>Comments: </strong>
+  <%= @eval.content %>
+</p>
+
+<%= link_to Submit Another Evaluation, userProjectTeam_path(:specific_user => eval.user) %>
+<%= link_to Back to Projects, userSpecificProjects_url %>
+
+</div>
+<%= render 'layouts/footer' %>

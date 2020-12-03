@@ -72,7 +72,7 @@ class UserStaticPagesController < ApplicationController
   end
 
   def evalAddSuccess
-    @eval = Group.find(params[:id])
+    @eval = Evaluation.find(params[:id])
   end
 
   # To add single student team member evaluation to database (POST)
@@ -97,8 +97,9 @@ class UserStaticPagesController < ApplicationController
     #@evaluation = Evaluation.new(student_evaluated: @team_member.u_name, content: params[:content], 
     #rating: params[:rating], user: @specific_user, project: @current_project)
       if @evaluation.save
-        format.html { redirect_to @evalAddSuccess, notice: 'Evaluation was successfully created.' }
-        format.json { render :evalAddSuccess, status: :created, location: @evalAddSuccess }
+        redirect_to userSpecificProjects_url
+        #format.html { redirect_to evalAndSuccess_url(@evaluation), notice: 'Evaluation was successfully created.' }
+        #format.json { render :evalAddSuccess, status: :created, location: @evaluation }
       else
         redirect_to userSpecificProjects_url
         #format.html { render :ratingPage_path(:team_member => @team_member.id) }
