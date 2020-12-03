@@ -18,6 +18,12 @@ class UserStaticPagesController < ApplicationController
     end    
   end
 
+  # For a page to list all users (GET)
+  # Named route: currentStudents_path
+  def currentStudents
+    @users = User.all
+  end
+
   # For a page to list all user specific projects (GET)
   # Named route: userSpecificProjects_path
   def userSpecificProjects

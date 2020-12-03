@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'user_static_pages#loginPage'
   get '/userSpecificProjects' => 'user_static_pages#userSpecificProjects'
+  get '/currentStudents' => 'user_static_pages#currentStudents'
   get 'user_static_pages/projectPage'
   get 'user_static_pages/groupPage'
   get 'user_static_pages/ratingPage'
