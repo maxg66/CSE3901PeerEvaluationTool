@@ -13,7 +13,9 @@
     <tbody>
         <%= @selected_user.evaluations.each do |eval| %>
         <tr>
-            <td><%= user_projects.find(eval.project_id).p_name %></td>
+            <td><%= @user_projects.find(eval.project_id).p_name %></td>
+            <td><%= eval.rating %></td>
+            <td><%= eval.content %></td>
         </tr>
         <% end %>
     </tbody>

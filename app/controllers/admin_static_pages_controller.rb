@@ -67,12 +67,6 @@ class AdminStaticPagesController < ApplicationController
       params.require(:group).permit(:u_name, :g_name)
   end
 
-
-  def ratingPage
-    @selected_user = User.find(params[:selected_user])
-    @user_projects = @selected_user.projects.all
-  end
-
   def valEvaluation
     eval = Evaluation.new
   end
@@ -97,5 +91,10 @@ class AdminStaticPagesController < ApplicationController
 
   def ratingPage
     @selected_user = User.find_by_id(params[:selected_user])
+    @user_projects = @selected_user.projects.all
+    @user_evals = @selected_user.evaluations.all
+    puts "hi101"
+    puts @user_projects.inspect
+    puts @user_evals.inspect
   end
 end
