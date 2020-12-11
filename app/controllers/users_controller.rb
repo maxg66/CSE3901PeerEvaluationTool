@@ -84,16 +84,25 @@ class UsersController < ApplicationController
   # For a page to edit user with specific id number (GET)
   # Named route: edit_user_path(user)
   def edit
+    @user = User.find(params[:id])
   end
 
   # To update a user (PATCH)
   # Named route: user_path(user)
-  def patch
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user, notice: 'Success!'
+    else
+      flash.now[:notice] = 'That password is not valid. Please try again.'
+      render :edit
+    end
   end
 
   # To delete a user (DELETE)
   # Named route: user_path(user)
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

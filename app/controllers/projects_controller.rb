@@ -45,16 +45,25 @@ class ProjectsController < ApplicationController
   # For a page to edit project with specific id number (GET)
   # Named route: edit_project_path(project)
   def edit
+    @project = Project.find(params[:id])
   end
 
   # To update a project (PATCH)
   # Named route: project_path(project)
-  def patch
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Success!'
+    else
+      flash.now[:notice] = 'Try again.'
+      render :edit
+    end
   end
 
   # To delete a project (DELETE)
   # Named route: project_path(project)
   def destroy
+    @project = Project.find(params[:id])
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'project was successfully destroyed.' }

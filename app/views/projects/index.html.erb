@@ -26,6 +26,8 @@
             <td><%= link_to project.p_name, groupsInProject_path(:selected_project => project.id) %></td>
             <td><%=project.project_type%></td>
             <td><%=project.due_date%></td>
+            <td><%= link_to_button 'Edit', edit_project_path(project) %></td>
+            <td><a href=<%= project_path(project)%> class="btn btn-danger btn-lg btn-block" data-confim="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
         </tr>
         <% end %>
     </tbody>

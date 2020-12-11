@@ -68,16 +68,25 @@ class GroupsController < ApplicationController
   # For a page to edit group with specific id number (GET)
   # Named route: edit_group_path(group)
   def edit
+    @group = Group.find(params[:id])
   end
 
   # To update a group (PATCH)
   # Named route: group_path(group)
-  def patch
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group, notice: 'Success!'
+    else
+      flash.now[:notice] = 'Try again.'
+      render :edit
+    end
   end
 
   # To delete a group (DELETE)
   # Named route: group_path(group)
   def destroy
+    @group = Group.find(params[:id])
     @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }

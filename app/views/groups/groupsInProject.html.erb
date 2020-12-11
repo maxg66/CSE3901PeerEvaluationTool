@@ -21,6 +21,8 @@
         <% @selected_project.groups.each do |group| %>
         <tr>
             <td> <%=link_to_button group.g_name, usersInGroup_path(:selected_group => group.id)%>
+            <td><%= link_to_button 'Edit', edit_group_path(group) %></td>
+            <td><a href=<%= group_path(group)%> class="btn btn-danger btn-lg btn-block" data-confim="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
         </tr>
         <% end %>
     </tbody>

@@ -39,19 +39,28 @@ class AdminsController < ApplicationController
   # For a page to edit admin with specific id number (GET)
   # Named route: edit_admin_path(admin)
   def edit
+    @admin = Admin.find(params[:id])
   end
 
   # To update a admin (PATCH)
   # Named route: admin_path(admin)
-  def patch
+  def update
+    @admin = Admin.find(params[:id])
+    if @admin.update(admin_params)
+      redirect_to @admin, notice: 'Success!'
+    else
+      flash.now[:notice] = 'That password is not valid. Please try again.'
+      render :edit
+    end
   end
 
   # To delete a admin (DELETE)
   # Named route: admin_path(admin)
   def destroy
+    @admin = Admin.find(params[:id])
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'admin was successfully destroyed.' }
+      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
