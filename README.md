@@ -28,15 +28,30 @@ To get started with the app, clone the repo and then install the needed gems:
 $ bundle install --without production
 ```
 
+Next, run a yarn check:
+
+```
+$ yarn install --check-files
+```
+
 Next, migrate the database:
 
 ```
 $ rails db:migrate
 ```
 
+Then, fetch the seed file
+
+```
+$ rails db:seed
+```
 You are now ready to run the app in a local server:
 
 ```
 $ rails server
 ```
-From here you can either login as a student or an administrator and explore the evalutation page!
+From here you can either login as a student or an administrator using the credentials below and explore the evalutation page!
+
+Initial Admin Login
+U: admin.1@osu.edu
+P: admin1pass
