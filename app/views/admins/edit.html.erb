@@ -7,7 +7,7 @@
 
 <% flash.each do |message_type, message| %>       
     <div><%= message %></div>    
-  <% end %>
+<% end %>
 
 <form action=<%= admin_path(@admin) %> method="post">
     <input name="_method" type="hidden" value="patch"/>

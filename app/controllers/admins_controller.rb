@@ -47,7 +47,7 @@ class AdminsController < ApplicationController
   def update
     @admin = Admin.find(params[:id])
     if @admin.update(admin_params)
-      redirect_to @admin, notice: 'Success!'
+      redirect_to admin_url(@admin), notice: 'Success!'
     else
       flash.now[:notice] = 'That password is not valid. Please try again.'
       render :edit

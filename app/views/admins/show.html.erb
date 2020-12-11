@@ -1,11 +1,18 @@
+<header>
+<%= render 'layouts/header' %>
+</header>
+
 <div class="centerBackground">
 
-<p id="notice"><%= notice %></p>
-
 <p>
+  <%= notice %>
   <strong>Name:</strong>
   <%= @admin.a_name %>
 </p>
+
+<% flash.each do |message_type, message| %>      
+  <div><%= message %></div>    
+<% end %>
 
 <p>
 <strong>Email:</strong>

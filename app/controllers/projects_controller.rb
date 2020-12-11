@@ -65,10 +65,8 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash.now[:success] = "Project was sucessfully deleted."
+    redirect_to projects_url
   end
 
   # Only allow a list of trusted parameters through

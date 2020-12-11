@@ -88,10 +88,8 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash.now[:success] = "Group was sucessfully deleted."
+    redirect_to projects_url
   end
 
   # Only allow a list of trusted parameters through

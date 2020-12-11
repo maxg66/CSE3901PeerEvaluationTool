@@ -27,7 +27,7 @@
             <td><%=project.project_type%></td>
             <td><%=project.due_date%></td>
             <td><%= link_to_button 'Edit', edit_project_path(project) %></td>
-            <td><a href=<%= project_path(project)%> class="btn btn-danger btn-lg btn-block" data-confim="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
+            <td><a href=<%= project_path(project)%> class="btn btn-danger btn-lg btn-block" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
         </tr>
         <% end %>
     </tbody>

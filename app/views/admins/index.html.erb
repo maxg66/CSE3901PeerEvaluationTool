@@ -25,7 +25,7 @@
             <td><%= admin.a_name %></td>
             <td><%= admin.a_email %></td>
             <td><%= link_to_button 'Edit', edit_admin_path(admin) %></td>
-            <td><a href=<%= admin_path(admin)%> class="btn btn-danger btn-lg btn-block" data-confim="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
+            <td><a href=<%= admin_path(admin)%> class="btn btn-danger btn-lg btn-block" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a></td>
         </tr>
         <% end %>
     </tbody>
