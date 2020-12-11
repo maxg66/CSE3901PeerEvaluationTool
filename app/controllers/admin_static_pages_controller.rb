@@ -92,9 +92,6 @@ class AdminStaticPagesController < ApplicationController
   def ratingPage
     @selected_user = User.find_by_id(params[:selected_user])
     @user_projects = @selected_user.projects.all
-    @user_evals = @selected_user.evaluations.all
-    puts "hi101"
-    puts @user_projects.inspect
-    puts @user_evals.inspect
-  end
+    @evalsWanted = @user_projects.find_by_id(session[:current_project_id]).evaluations.where(student_evaluated: @selected_user.u_name)
+    end
 end
