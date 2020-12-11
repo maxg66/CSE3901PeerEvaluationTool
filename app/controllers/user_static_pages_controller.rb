@@ -65,7 +65,7 @@ class UserStaticPagesController < ApplicationController
   end
 
   def ratingPage
-    @team_member = User.find_by(params[:team_member])
+    @team_member = User.find(params[:team_member])
     #save_team_member @team_member
     #team_member
     session[:team_member_id] = @team_member.id
