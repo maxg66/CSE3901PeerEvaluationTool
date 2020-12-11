@@ -93,19 +93,36 @@ th {
   {
     color: rgb(41, 40, 40);
   }
-
-  .submitBtn{
+  button{
     background-color: #F03B3B;
+    color:white;
     border: 2px solid white;
     text-align: center;
     font-weight: bold;
+    padding: 12px 28px;
+  }
+
+  button a{
+    color: white;
+  }
+
+  a {
+  color: black;
+}
+
+/*
+  .submitBtn{
+    background-color: #F03B3B;
     color:white;
+    border: 2px solid white;
+    text-align: center;
+    font-weight: bold;
     padding: 12px 28px;
   
   }
 
   .enterButton {
-    background-color: #F03B3B; /* Red */
+    background-color: #F03B3B; /* Red *//*
     border: 2px solid white;
     color: white;
     padding: 5px 5px;
@@ -114,7 +131,7 @@ th {
     font-weight: bold;
   
   }
-
+*/
 .dropdown {
   position: relative;
   float: right;
